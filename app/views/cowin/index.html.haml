@@ -1,0 +1,57 @@
+%h1 Cowin Vaccine Availability Check
+%br
+%br
+.row
+  .col-md-12.order-md-1
+    %h4.mb-3 Details
+    = form_tag('/cowin', method: :post, class: "needs-validation") do
+      .row
+        .col-md-3.mb-3
+          %label{:for => "state"} Select State
+          = select_tag :state_id, options_for_select(Cowin.state_options.invert, @cv&.state_id), id: "state", class: "form-select selectpicker d-block w-100", required: true
+          .invalid-feedback
+            Please provide a valid state.
+        .col-md-3.mb-3
+          %label{:for => "vaccine"} Select Vaccine
+          = select_tag :vaccines, options_for_select(Cowin.vaccine_options, (@cv&.vaccines || "")), id: "vaccine", class: "form-control", required: true, multiple: "multiple"
+          .invalid-feedback
+            Please select a valid country.
+        .col-md-3.mb-3
+          %label{:for => "age"} Select Age
+          = select_tag :age, options_for_select(Cowin.age_options, @cv&.age), id: "age", class: "form-select selectpicker d-block w-100", required: true
+        .col-md-3.mb-3
+          %label{:for => "dose"} Select Dose
+          = select_tag :dose, options_for_select(Cowin.dose_options, @cv&.dose), id: "dose", class: "form-select selectpicker d-block w-100", required: true
+      %br
+      = submit_tag("Get Availibility", class: "btn btn-primary btn-block", :type => "submit")
+      %a.btn.btn-secondary.btn-block{:href => "https://selfregistration.cowin.gov.in/", :target => "_blank"} Book
+    %br
+    %hr.mb-4/
+  .col-md-12.order-md-2.mb-4
+    - (@cv&.availability || {}).each do |district, vaccine_center_detail|
+      %h4.d-flex.justify-content-between.align-items-center.mb-3
+        %span.text-muted= district
+      %ul.list-group.mb-3
+        - vaccine_center_detail.each do |center, date_detail|
+          %li.list-group-item
+            %h6.my-0= center
+            %ul.list-group.list-group-flush
+              - date_detail.each do |date_detail|
+                - date_detail.each do |date, detail|
+                  - info, count = detail.split('-')
+                  %li.list-group-item.d-flex.justify-content-between.align-items-center
+                    %small
+                      %b= date
+                      %small.text-muted= "#{info}"
+                    %small.badge.badge-secondary.badge-pill= count
+%br
+%br
+%footer.my-5.pt-5.text-muted.text-center.text-small
+  %p.mb-1 © 2021 Raghu Boosetty
+  %ul.list-inline
+    %li.list-inline-item
+      %a{:href => "#"} Privacy
+    %li.list-inline-item
+      %a{:href => "#"} Terms
+    %li.list-inline-item
+      %a{:href => "#"} Support

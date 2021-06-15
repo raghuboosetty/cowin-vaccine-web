@@ -1,0 +1,2 @@
+module CowinHelper
+end
