@@ -99,10 +99,7 @@ class Cowin
 
 private
   def api_get(url)
-    headers = {
-      'Content-Type': 'application/json', 
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
-    }
+    headers = { 'Content-Type': 'application/json' }
     begin
       JSON.parse(RestClient.get(url, headers))
     rescue => e
