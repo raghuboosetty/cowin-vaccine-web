@@ -2,23 +2,27 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
+}
+
 .badge-pill {
-    padding-right: .6em;
-    padding-left: .6em;
-    border-radius: 10rem;
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
 }
 
 .badge-primary {
-    color: #fff;
-    background-color: #007bff;
+  color: #fff;
+  background-color: #007bff;
 }
 
 .badge-secondary {
-    color: #fff;
-    background-color: #6c757d;
+  color: #fff;
+  background-color: #6c757d;
 }
 
 .badge-light {
-    color: #212529;
-    background-color: #f8f9fa;
+  color: #212529;
+  background-color: #f8f9fa;
 }

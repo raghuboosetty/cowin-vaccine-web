@@ -3,25 +3,28 @@
 %br
 .row
   .col-md-12.order-md-1
-    %h4.mb-3 Details
     = form_tag('/cowin', method: :post, class: "needs-validation") do
       .row
+        .col-md-4.mb-4
+          .form-floating
+            = select_tag :state_id, options_for_select(Cowin.state_options.invert, @cv&.state_id), id: "state-select", class: "state-selector form-select d-block w-100", required: true
+            %label{:for => "state-select"} State
+            .invalid-feedback
+              Please provide a valid state.
         .col-md-3.mb-3
-          %label{:for => "state-select"} Select State
-          = select_tag :state_id, options_for_select(Cowin.state_options.invert, @cv&.state_id), id: "state-select", class: "state-selector form-select selectpicker d-block w-100", required: true
-          .invalid-feedback
-            Please provide a valid state.
+          .form-floating
+            = select_tag :age, options_for_select(Cowin.age_options, @cv&.age), id: "age-select", class: "form-select selectpicker d-block w-100", required: true
+            %label{:for => "age-select"} Age
         .col-md-3.mb-3
-          %label{:for => "vaccine-select"} Select Vaccine
-          = select_tag :vaccines, options_for_select(Cowin.vaccine_options, (@cv&.vaccines || "")), id: "vaccine-select", class: "form-control", required: true, multiple: "multiple"
+          .form-floating
+            = select_tag :dose, options_for_select(Cowin.dose_options, @cv&.dose), id: "dose-select", class: "form-select selectpicker d-block w-100", required: true
+            %label{:for => "dose-select"} Dose
+        .col-md-2.mb-2
+          .form-floating
+            = select_tag :vaccines, options_for_select(Cowin.vaccine_options, (@cv&.vaccines || "")), id: "vaccine-select", class: "form-select", required: true, multiple: "multiple", style: "height: 100px;"
+            %label{:for => "vaccine-select"} Vaccine
           .invalid-feedback
             Please select a valid country.
-        .col-md-3.mb-3
-          %label{:for => "age-select"} Select Age
-          = select_tag :age, options_for_select(Cowin.age_options, @cv&.age), id: "age-select", class: "form-select selectpicker d-block w-100", required: true
-        .col-md-3.mb-3
-          %label{:for => "dose-select"} Select Dose
-          = select_tag :dose, options_for_select(Cowin.dose_options, @cv&.dose), id: "dose-select", class: "form-select selectpicker d-block w-100", required: true
       %br
       = submit_tag("Get Availibility", id: "get-availibility", class: "btn btn-primary btn-block", :type => "submit")
       %a.btn.btn-secondary.btn-block{:href => "https://selfregistration.cowin.gov.in/", :target => "_blank"} Book
@@ -45,14 +48,19 @@
                       %b= date
                       %small.text-muted= "#{info}"
                     %small.badge.badge-secondary.badge-pill= count
-%br
-%br
-%footer.my-5.pt-5.text-muted.text-center.text-small
-  %p.mb-1 © 2021 Raghu Boosetty
+
+%footer.my-5.pt-5.text-muted.text-center.text-small  
+  %small.mb-2 
+    Built by:
+    %a.text-decoration-none{:href => "https://github.com/raghuboosetty", target: "_blank"} @raghuboosetty
+    -# %iframe{:frameborder => "0", :height => "20", :scrolling => "0", :src => "https://ghbtns.com/github-btn.html?user=raghuboosetty&repo=cowin-vaccine-web&type=star&count=true", :title => "GitHub", :width => "150"}
   %ul.list-inline
     %li.list-inline-item
-      %a{:href => "#"} Privacy
+      %small
+        %a.text-decoration-none{:href => "https://github.com/raghuboosetty/cowin-vaccine-web", target: "_blank"} Source
     %li.list-inline-item
-      %a{:href => "#"} Terms
+      %small
+        %a.text-decoration-none{:href => "https://raw.githubusercontent.com/raghuboosetty/cowin-vaccine-web/main/LICENSE", target: "_blank"} License
     %li.list-inline-item
-      %a{:href => "#"} Support
+      %small
+        %a.text-decoration-none{:href => "#"} Support
