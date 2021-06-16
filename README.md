@@ -1,5 +1,3 @@
-# About
-
 The loads availability of the vaccines for given state. Browsing through each district can be cumbersome. This app is an overlay to do a quick search with the filters with a better UI.
 
 The app uses this API: https://apisetu.gov.in/public/api/cowin
