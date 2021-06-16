@@ -14,8 +14,8 @@ class Cowin
   end
 
   def fetch_vaccines
-    logger.debug "Districts GET: #{api_get(DISTRICT_LIST_URL.gsub("state_id", state_id.to_s)).dig("districts")}"
-    logger.debug "Districts: #{districts}"
+    Rails.logger.debug "Districts GET: #{api_get(DISTRICT_LIST_URL.gsub("state_id", state_id.to_s)).dig("districts")}"
+    Rails.logger.debug "Districts: #{districts}"
     districts.each_with_index do |district, district_index|
       centers = api_get("#{VACCINE_BY_DISTRICT_URL}?district_id=#{district['district_id']}&date=#{Date.today.strftime('%d-%m-%Y')}").dig('centers')
       centers.each_with_index do |center, center_index|
