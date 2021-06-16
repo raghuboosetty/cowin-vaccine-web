@@ -24,7 +24,7 @@ class Cowin
           availability[district['district_name']][center['name']] = [] unless availability[district['district_name']][center['name']]
           if session["available_capacity_dose#{dose}"].positive? && vaccines.any? { |v| session['vaccine'] == v } && session['min_age_limit'] == age.to_i
             availability[district['district_name']][center['name']] << { 
-              "#{session['date']}" => "#{session['vaccine']&.capitalize} | #{center['fee_type']} | #{center['vaccine_fees']&.find {|fee| fee['vaccine'] == session['vaccine'] }&.dig('fee')} INR - #{session['available_capacity_dose' + dose.to_s]}"
+              "#{session['date']}-#{district['district_id']}-#{center['center_id']}" => "#{session['vaccine']&.capitalize} | #{center['fee_type']} | #{center['vaccine_fees']&.find {|fee| fee['vaccine'] == session['vaccine'] }&.dig('fee')} INR - #{session['available_capacity_dose' + dose.to_s]}"
             }
           end
         end
