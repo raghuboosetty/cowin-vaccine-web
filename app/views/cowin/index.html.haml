@@ -4,7 +4,6 @@
 .row
   .col-md-12.order-md-1
     %h4.mb-3 Details
-    = JSON.parse(RestClient.get("https://cdn-api.co-vin.in/api/v2/admin/location/states", headers))
     = form_tag('/cowin', method: :post, class: "needs-validation") do
       .row
         .col-md-3.mb-3
@@ -56,3 +55,9 @@
       %a{:href => "#"} Terms
     %li.list-inline-item
       %a{:href => "#"} Support
+
+
+:javascript
+  jQuery.get("https://cdn-api.co-vin.in/api/v2/admin/location/states", function(data) {
+    console.log(data);
+  });
