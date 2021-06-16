@@ -57,7 +57,7 @@ function vaccineAvailibility(selected_state_id, selected_vaccines, selected_age,
                   }
 
                   if (center_counter[center_data.name] == 1) {
-                    $('.available-districts').append("<ul class='list-group mb-3'><li class='available-center-" + center_data.center_id + " list-group-item'><h6 class='my-0'" + center_data.name + "</h6></li></ul>")
+                    $('.available-districts').append("<ul class='list-group mb-3'><li class='available-center-" + center_data.center_id + " list-group-item'><h6 class='my-0'>" + center_data.name +"</h6></li></ul>")
                   }
                   var fee = 0;
                   if (center_data.vaccine_fees != undefined) {
@@ -78,20 +78,3 @@ function vaccineAvailibility(selected_state_id, selected_vaccines, selected_age,
     }
   })
 }
-
-
-
-// var x = document.getElementById("demo");
-
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
-
-// function showPosition(position) {
-//   x.innerHTML = "Latitude: " + position.coords.latitude +
-//     "<br>Longitude: " + position.coords.longitude;
-// }
