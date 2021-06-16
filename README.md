@@ -1,24 +1,26 @@
-# README
+# About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The loads availability of the vaccines for given state. Browsing through each district can be cumbersome. This app is an overlay to do a quick search with the filters with a better UI.
 
-Things you may want to cover:
+The app uses this API: https://apisetu.gov.in/public/api/cowin
 
-* Ruby version
+The deployment is available at http://www.cowinvaccine.online
 
-* System dependencies
+This app also supports
+* State selection
+* Vaccine Selection
+* Dose Selection
+* Age Group Selection
 
-* Configuration
+# No Nonsense Stuff
 
-* Database creation
+App doesn't have any audio sounds(which could be irritating at time) nor does it have a notification system. Simple check as and when needed.
 
-* Database initialization
+## Running locally
+Just as to any other Rails app. 
 
-* How to run the test suite
+```ruby
+bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+bin/rails s
+```
