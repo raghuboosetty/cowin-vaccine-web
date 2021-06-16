@@ -7,23 +7,23 @@
     = form_tag('/cowin', method: :post, class: "needs-validation") do
       .row
         .col-md-3.mb-3
-          %label{:for => "state"} Select State
-          = select_tag :state_id, options_for_select(Cowin.state_options.invert, @cv&.state_id), id: "state", class: "state-selector form-select selectpicker d-block w-100", required: true
+          %label{:for => "state-select"} Select State
+          = select_tag :state_id, options_for_select(Cowin.state_options.invert, @cv&.state_id), id: "state-select", class: "state-selector form-select selectpicker d-block w-100", required: true
           .invalid-feedback
             Please provide a valid state.
         .col-md-3.mb-3
-          %label{:for => "vaccine"} Select Vaccine
-          = select_tag :vaccines, options_for_select(Cowin.vaccine_options, (@cv&.vaccines || "")), id: "vaccine", class: "form-control", required: true, multiple: "multiple"
+          %label{:for => "vaccine-select"} Select Vaccine
+          = select_tag :vaccines, options_for_select(Cowin.vaccine_options, (@cv&.vaccines || "")), id: "vaccine-select", class: "form-control", required: true, multiple: "multiple"
           .invalid-feedback
             Please select a valid country.
         .col-md-3.mb-3
-          %label{:for => "age"} Select Age
-          = select_tag :age, options_for_select(Cowin.age_options, @cv&.age), id: "age", class: "form-select selectpicker d-block w-100", required: true
+          %label{:for => "age-select"} Select Age
+          = select_tag :age, options_for_select(Cowin.age_options, @cv&.age), id: "age-select", class: "form-select selectpicker d-block w-100", required: true
         .col-md-3.mb-3
-          %label{:for => "dose"} Select Dose
-          = select_tag :dose, options_for_select(Cowin.dose_options, @cv&.dose), id: "dose", class: "form-select selectpicker d-block w-100", required: true
+          %label{:for => "dose-select"} Select Dose
+          = select_tag :dose, options_for_select(Cowin.dose_options, @cv&.dose), id: "dose-select", class: "form-select selectpicker d-block w-100", required: true
       %br
-      = submit_tag("Get Availibility", class: "btn btn-primary btn-block", :type => "submit")
+      = submit_tag("Get Availibility", id: "get-availibility", class: "btn btn-primary btn-block", :type => "submit")
       %a.btn.btn-secondary.btn-block{:href => "https://selfregistration.cowin.gov.in/", :target => "_blank"} Book
     %br
     %hr.mb-4/

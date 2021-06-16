@@ -77,8 +77,8 @@ class Cowin
 
   def self.dose_options
     {
-      "Dose 1": 1,
-      "Dose 2": 2
+      "Dose 1": "available_capacity_dose1",
+      "Dose 2": "available_capacity_dose2"
     }
   end
 
