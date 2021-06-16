@@ -36,6 +36,7 @@ class Cowin
 
   def self.state_options
     {
+      32 => "Telangana",
       1 => "Andaman And Nicobar Islands",
       2 => "Andhra Pradesh",
       3 => "Arunachal Pradesh",
@@ -67,7 +68,6 @@ class Cowin
       29 => "Rajasthan",
       30 => "Sikkim",
       31 => "Tamil Nadu",
-      32 => "Telangana",
       33 => "Tripura",
       34 => "Uttar Pradesh",
       35 => "Uttarakhand",
