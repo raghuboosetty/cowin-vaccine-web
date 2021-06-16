@@ -6,7 +6,8 @@
     %meta{:content => "Vaccine,Cowin,Covaxin,Covishield,Jab,Dose", :name => "keywords"}/
     %meta{:content => "Raghu Boosetty", :name => "author"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-
+    / Global site tag (gtag.js) - Google Analytics
+    %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=G-6VZ37K4H11"}
     %title Cowin Vaccine Availability Check
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
@@ -15,3 +16,9 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body.container
     = yield
+
+:javascript
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VZ37K4H11');
