@@ -86,7 +86,8 @@ class Cowin
     {
       "Any": "",
       "Covaxin": 'COVAXIN',
-      "Covishield": "COVISHIELD"
+      "Covishield": "COVISHIELD",
+      "Sputnik V": "SPUTNIK V"
     }
   end
 
